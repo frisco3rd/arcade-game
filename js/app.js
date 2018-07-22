@@ -5,7 +5,10 @@ var Enemy = function() {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
+    this.x = 0;
+    this.y = 0;
     this.sprite = 'images/enemy-bug.png';
+    this.step = 101;
     
 };
 
@@ -16,6 +19,13 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    // if enemnty is not pass boundrey 
+    if(this.x < this.step * 5) {
+        // Move enemey forward
+        // increment x by dt speed
+        this.x += 200 * dt;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -44,15 +54,19 @@ class Hero {
     handleInput(input){
         switch(input){
             case 'left':
-            this.x = this.step;
+            if(this.x >0)
+            this.x -= this.step;
             break;
             case "up":
+            if(this.y >0)
             this.y -= this.jump;
             break;
             case "right":
+            if(this.x < this.jump * 4)
             this.x += this.step;
             break;
             case "down":
+            if(this.y < this.jump * 5)
             this.y += this.jump;
             break;
 
@@ -61,8 +75,11 @@ class Hero {
 }
 
 // Now instantiate your objects.
-const player = new Hero;
+const player = new Hero();
+const bug1 = new Enemy();
 // Place all enemy objects in an array called allEnemies
+const allEnemies = [];
+allEnemies.push(bug1);
 // Place the player object in a variable called player
 
 
