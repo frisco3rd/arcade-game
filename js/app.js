@@ -54,11 +54,15 @@ class Hero {
     }
         update(){
             for(let enemy of allEnemies){
-                if(this.y === enemy.y && (enemy.x + enemy.step > 
-                    this.x && enemy.x <this.x + this.step)){
-                    console.log("collide");
+                if(this.y === enemy.y && (enemy.x + enemy.step/2 > 
+                    this.x && enemy.x <this.x + this.step/2)){
+                    this.reset();
                 }
             }
+        }
+        reset(){
+            this.x = this.startX;
+            this.y = this.startY;
         }
     // Renders player image to page
     render(){
