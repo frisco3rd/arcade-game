@@ -48,10 +48,18 @@ class Hero {
         this.step = 101;
         this.jump = 83;
         this.startX = this.step * 2;
-        this.startY = this.jump * 5;
+        this.startY = (this.jump * 4) + 55;
         this.x = this.startX;
         this.y = this.startY;
     }
+        update(){
+            for(let enemy of allEnemies){
+                if(this.y === enemy.y && (enemy.x + enemy.step > 
+                    this.x && enemy.x <this.x + this.step)){
+                    console.log("collide");
+                }
+            }
+        }
     // Renders player image to page
     render(){
         ctx.drawImage(Resources.get(this.sprite),this.x, this.y);
