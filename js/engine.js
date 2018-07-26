@@ -34,7 +34,7 @@ var Engine = (function(global) {
      */
     function main() {
         if(player.victory ===  true){
-            win.requestAnimationFrame(id);
+            win.cancelAnimationFrame(id);
         }
         else{
             id = win.requestAnimationFrame(main);
