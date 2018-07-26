@@ -6,12 +6,12 @@ var Enemy = function(x,y,speed) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.x = x;
-    this.y = y - 40;
+    this.y = y + 55;
     this.speed = speed;
     this.sprite = 'images/enemy-bug.png';
-    this.step = 501;
-    this.boundry = this.step * 1;
-    this.resetPos = this.step = -501;
+    this.step = this.y + 55;
+    this.boundry = this.step * 4;
+    this.resetPos = -501;
 };
 
 // Update the enemy's position, required method for game
@@ -48,20 +48,22 @@ class Hero {
         this.step = 101;
         this.jump = 83;
         this.startX = this.step * 2;
-        this.startY = (this.jump * 5) - 40; 
+        this.startY = (this.jump * 4) + 55; 
         this.x = this.startX;
         this.y = this.startY;
         this.victory = false;
     }
         update(){
+            console.log(this.y,this.x)
             for(let enemy of allEnemies){
-                if(this.y === enemy.y && (enemy.x + enemy.step > 
-                    this.x && enemy.x < this.x + this.step)){
+                if(this.y === enemy.y && (enemy.x + enemy.step/2 > 
+                    this.x && enemy.x < this.x + this.step/2)){
+                        console.log('smash',this.x,this.y);
                     this.reset();
                 }
             }
-            if(this.y === -40){
-                console.log("win");
+            if(this.y === -28){
+                console.log(this.y);
                 this.victory = true;
             }
         }
@@ -89,7 +91,7 @@ class Hero {
             this.x += this.step;
             break;
             case "down":
-            if(this.y < this.jump * 5)
+            if(this.y < this.jump * 4)
             this.y += this.jump;
             break;
 
@@ -99,9 +101,11 @@ class Hero {
 
 // Now instantiate your objects.
 const player = new Hero();
-const bug1 = new Enemy(-501, 83, 300);
-const bug2 = new Enemy(-201, 166, 400);
-const bug3 = new Enemy(-301, 249, 250);
+const bug1 = new Enemy(-202, 83, 542);
+const bug2 = new Enemy(-302, 166, 446);
+const bug3 = new Enemy(-502, 0, 378);
+
+
 
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
