@@ -51,6 +51,7 @@ class Hero {
         this.startY = (this.jump * 4) + 55;
         this.x = this.startX;
         this.y = this.startY;
+        this.victory = false;
     }
         update(){
             for(let enemy of allEnemies){
@@ -58,6 +59,10 @@ class Hero {
                     this.x && enemy.x <this.x + this.step/2)){
                     this.reset();
                 }
+            }
+            if(this.y === 55){
+                console.log("win");
+                this.victory = true;
             }
         }
         reset(){
