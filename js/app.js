@@ -48,7 +48,7 @@ class Hero {
         this.step = 101;
         this.jump = 83;
         this.startX = this.step * 2;
-        this.startY = (this.jump * 4) + 55;
+        this.startY = (this.jump * 4) + 55; 
         this.x = this.startX;
         this.y = this.startY;
         this.victory = false;
@@ -56,7 +56,7 @@ class Hero {
         update(){
             for(let enemy of allEnemies){
                 if(this.y === enemy.y && (enemy.x + enemy.step/2 > 
-                    this.x && enemy.x <this.x + this.step/2)){
+                    this.x && enemy.x < this.x + this.step/2)){
                     this.reset();
                 }
             }
@@ -66,8 +66,9 @@ class Hero {
             }
         }
         reset(){
-            this.x = this.startX;
             this.y = this.startY;
+            this.x = this.startX;
+
         }
     // Renders player image to page
     render(){
@@ -76,11 +77,11 @@ class Hero {
     handleInput(input){
         switch(input){
             case 'left':
-            if(this.x >0)
+            if(this.x > 0)
             this.x -= this.step;
             break;
             case "up":
-            if(this.y >0)
+            if(this.y > 0)
             this.y -= this.jump;
             break;
             case "right":
