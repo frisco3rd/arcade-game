@@ -54,16 +54,13 @@ class Hero {
         this.victory = false;
     }
         update(){
-            console.log(this.y,this.x)
             for(let enemy of allEnemies){
                 if(this.y === enemy.y && (enemy.x + enemy.step/2 > 
                     this.x && enemy.x < this.x + this.step/2)){
-                        console.log('smash',this.x,this.y);
                     this.reset();
                 }
             }
             if(this.y === -28){
-                console.log(this.y);
                 this.victory = true;
             }
         }
