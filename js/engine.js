@@ -40,10 +40,12 @@ var Engine = (function(global) {
         else{
             id = win.requestAnimationFrame(main);
         }
+        //
         function toggleModal() {
             const modal = document.querySelector('.modal');
             modal.style.display = 'inline';
         };
+        // Reset function
         document.querySelector('.replay_button').addEventListener('click', () => {
             location.reload(false);
             main();

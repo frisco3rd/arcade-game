@@ -74,6 +74,7 @@ class Hero {
     render(){
         ctx.drawImage(Resources.get(this.sprite),this.x, this.y);
     }
+    // Players movement
     handleInput(input){
         switch(input){
             case 'left':
