@@ -35,11 +35,19 @@ var Engine = (function(global) {
     function main() {
         if(player.victory ===  true){
             win.cancelAnimationFrame(id);
+            toggleModal();
         }
         else{
             id = win.requestAnimationFrame(main);
-
         }
+        function toggleModal() {
+            const modal = document.querySelector('.modal');
+            modal.style.display = 'inline';
+        };
+        document.querySelector('.replay_button').addEventListener('click', () => {
+            location.reload(false);
+            main();
+        })
         /* Get our time delta information which is required if your game
          * requires smooth animation. Because everyone's computer processes
          * instructions at different speeds we need a constant value that

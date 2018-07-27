@@ -1,4 +1,5 @@
 // Enemies our player must avoid
+
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -67,8 +68,8 @@ class Hero {
         reset(){
             this.y = this.startY;
             this.x = this.startX;
-
         }
+        
     // Renders player image to page
     render(){
         ctx.drawImage(Resources.get(this.sprite),this.x, this.y);
@@ -108,8 +109,6 @@ const bug3 = new Enemy(-502, 0, 378);
 const allEnemies = [];
 allEnemies.push(bug1,bug2,bug3);
 // Place the player object in a variable called player
-
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
