@@ -1,6 +1,7 @@
 // Enemies our player must avoid
 
-var Enemy = function(x,y,speed) {
+class Enemy { 
+    constructor(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -13,6 +14,7 @@ var Enemy = function(x,y,speed) {
     this.step = this.y + 55;
     this.boundry = this.step * 4;
     this.resetPos = -501;
+    }
 };
 
 // Update the enemy's position, required method for game
@@ -107,8 +109,7 @@ const bug3 = new Enemy(-502, 0, 378);
 
 
 // Place all enemy objects in an array called allEnemies
-const allEnemies = [];
-allEnemies.push(bug1,bug2,bug3);
+const allEnemies = [bug1,bug2,bug3];
 // Place the player object in a variable called player
 
 // This listens for key presses and sends the keys to your

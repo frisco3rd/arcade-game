@@ -10,3 +10,7 @@ CSS & Javascript using OOP.
 
 - Udacity Slack Channel
 - MATTHEW CRANFORD
+
+## How to play
+Open index.html in web browser to begin game! or click link to beging
+http://htmlpreview.github.io/?https://github.com/frisco3rd/arcade-game/blob/master/index.html
